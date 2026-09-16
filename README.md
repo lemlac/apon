@@ -116,7 +116,7 @@ in
   case _ then "Something else!"
 ```
 
-Types are declared using the keyword `type` followed by a type expression. Values can be asserted to be a certain type using the keyword `as`. 
+Types are declared using the keyword `type` followed by a type expression. Putting `as` at the end of an expression will assert the resulting type. Types match based on duck typing, i.e. all of the properties names and types match.
 
 ```apon
 let
