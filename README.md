@@ -13,7 +13,7 @@ APON syntax is heavily inspired by functional languages like Nix. It treats func
 
 - Primitives: Supports integers, floats, booleans, strings, and nulls. 
 - Arrays: Written with square brackets and separated by commas. `[1, 2, 3]`
-- Objects: These are key-value dictionaries, written with curly braces.
+- Objects: These are key-value dictionaries, written with curly braces. `{"a": 1}`
 
 Example:
 
