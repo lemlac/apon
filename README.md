@@ -38,6 +38,25 @@ Example:
 
 Unlike in JSON, trailing commas are allowed for any expression that is sequenced with commas such as objects, arrays, etc.
 
+In-lined comments are marked with a hash symbol (`#`). It's recommended to keep comments short and sweet to reduce token count and prevent LLMs from accidently rambling inside a large comment.
+
+```apon
+{
+  # Single-line comments are supported.
+  "projectName": "Admin Dashboard",
+  "version": "1.0.0",
+
+  # Multi-line comments can written
+  # by using multiple comments in
+  # a row.
+  "database": {
+    "host": "127.0.0.1",
+    "port": 5432, # Comments can be placed at the end of a line.
+    "username": "root"
+  },
+}
+```
+
 Variables can be declared with the pattern `let nane = value in`. Multiple variables can be declared at once seperated by commas. 
 
 ```apon
