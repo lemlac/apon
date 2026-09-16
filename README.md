@@ -57,7 +57,7 @@ In-lined comments are marked with a hash symbol (`#`). It's recommended to keep 
 }
 ```
 
-Variables can be declared with the pattern `let nane = value in`. Multiple variables can be declared at once seperated by commas. 
+Variables can be declared with the pattern `let name = value in`. Multiple variables can be declared at once seperated by commas. 
 
 ```apon
 let a = 1, b = 2 in
