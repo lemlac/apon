@@ -90,21 +90,25 @@ Basic operators found in most other programmming languages are available: `+ - *
 
 APON also has keyword expressions for boolean logic and pattern matching.
 
-`if else`
+`if then else`
 
 ```apon
 let status = 404 in
-"Success" if status == 200 else
-"Not Found" if status == 404 else
-"Internal Server Error" if status == 500 else
-"Unknown Status"
+if status == 200 then
+  "Success"
+else if status == 404 then
+  "Not Found"
+else if status == 500 then
+  "Internal Server Error"
+else
+  "Unknown Status"
 ```
 
-`case`
+`match with`
 
 ```apon
 let n = 2 in
-n case {
+match n with {
   [1]: "One!",
   [2]: "Two!",
   [3]: "Three!",
