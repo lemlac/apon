@@ -68,7 +68,7 @@ let b = 2 in
 }
 ```
 
-The key of an object can be an expression if enclosed in parentheses. The expression must evaluate to a string.
+The key of an object can be an expression if enclosed in square brackets.
 
 ```apon
 let key = "message" in
