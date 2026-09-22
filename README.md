@@ -57,10 +57,11 @@ In-lined comments are marked with a hash symbol (`#`). It's recommended to keep 
 }
 ```
 
-Variables can be declared with the pattern `let name = value in`. Multiple variables can be declared at once seperated by commas. 
+Variables can be declared with the pattern `let name = value in`. This can be chained to declare multiple variables in one expression.
 
 ```apon
-let a = 1, b = 2 in
+let a = 1 in
+let b = 2 in
 {
   "a": a,
   "b": b,
@@ -76,7 +77,7 @@ let key = "message" in
 }
 ```
 
-Functions are declared using vertical bar notation. They can be declared in any expression that expects a function type. Like true lambda functions, it can only have one expression which is its return value. 
+Functions are declared using vertical bar notation. They can be declared in any expression if it expects a function type. Like true lambda functions, it can only have one expression which is its return value. 
 
 ```apon
 let addOne = |x| x + 1 in
@@ -92,17 +93,15 @@ APON also has keyword expressions for boolean logic and pattern matching.
 `if then else`
 
 ```apon
-let
-  status = 404,
-in
-  if status == 200 then
-    "Success"
-  else if status == 404 then
-    "Not Found"
-  else if status == 500 then
-    "Internal Server Error"
-  else
-    "Unknown Status"
+let status = 404 in
+if status == 200 then
+  "Success"
+else if status == 404 then
+  "Not Found"
+else if status == 500 then
+  "Internal Server Error"
+else
+  "Unknown Status"
 ```
 
 `match case then`
@@ -119,15 +118,12 @@ in
 Types are declared using the keyword `type` followed by a type expression. Putting `as` at the end of an expression will assert the resulting type. Types match based on duck typing, i.e. all of the properties names and types match.
 
 ```apon
-let
-  User = type {
-    "id": number,
-    "name": string,
-    "role": "admin" | "user",
-    "email"?: string,
-  },
-in
-{
+let User = type {
+  "id": number,
+  "name": string,
+  "role": "admin" | "user",
+  "email"?: string,
+} in {
   "id": 1,
   "name": "Alice",
   "role": "admin",
@@ -137,10 +133,8 @@ in
 Types are normally inferred, but they can be explicitly declared for `let` variables and function parameters with a colon after the name. 
 
 ```apon
-let
-  a: number = 1,
-  addOne: number -> number = |x| x + 1,
-in
+let a: number = 1 in
+let addOne = |x: number| x + 1 in
 { "answer": addOne(a) }
 ```
 
