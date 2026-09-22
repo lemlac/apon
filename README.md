@@ -108,7 +108,8 @@ let status = 404 in
     [1]: "One!",
     [2]: "Two!",
     [3]: "Three!",
-    _: "Something else!",
+    # Default case:
+    [_]: "Something else!",
   }
 ```
 
