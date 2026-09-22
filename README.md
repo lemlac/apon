@@ -68,7 +68,7 @@ let b = 2 in
 }
 ```
 
-The key of an object can be an expression if enclosed in square brackets. The expression must evaluate to a string.
+The key of an object can be an expression if enclosed in parentheses. The expression must evaluate to a string.
 
 ```apon
 let key = "message" in
@@ -90,29 +90,26 @@ Basic operators found in most other programmming languages are available: `+ - *
 
 APON also has keyword expressions for boolean logic and pattern matching.
 
-`if then else`
+`if else`
 
 ```apon
 let status = 404 in
-if status == 200 then
-  "Success"
-else if status == 404 then
-  "Not Found"
-else if status == 500 then
-  "Internal Server Error"
-else
-  "Unknown Status"
+"Success" if status == 200 else
+"Not Found" if status == 404 else
+"Internal Server Error" if status == 500 else
+"Unknown Status"
 ```
 
-`match case then`
+`match with`
 
 ```apon
 |n|
-  match n
-  case 1 then "One!"
-  case 2 then "Two!"
-  case 3 then "Three!"
-  case _ then "Something else!"
+  match n with {
+    1: "One!",
+    2: "Two!",
+    3: "Three!",
+    _: "Something else!",
+  }
 ```
 
 Types are declared using the keyword `type` followed by a type expression. Putting `as` at the end of an expression will assert the resulting type. Types match based on duck typing, i.e. all of the properties names and types match.
