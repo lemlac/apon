@@ -100,17 +100,17 @@ let status = 404 in
 "Unknown Status"
 ```
 
-`match with`
+`case`
 
 ```apon
-|n|
-  match n with {
-    [1]: "One!",
-    [2]: "Two!",
-    [3]: "Three!",
-    # Default case:
-    [_]: "Something else!",
-  }
+let n = 2 in
+n case {
+  [1]: "One!",
+  [2]: "Two!",
+  [3]: "Three!",
+  # Default case:
+  [_]: "Something else!",
+}
 ```
 
 Types are declared using the keyword `type` followed by a type expression. Putting `as` at the end of an expression will assert the resulting type. Types match based on duck typing, i.e. all of the properties names and types match.
