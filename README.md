@@ -104,17 +104,16 @@ else
   "Unknown Status"
 ```
 
-`match with`
+`case is then`
 
 ```apon
 let n = 2 in
-match n with {
-  [1]: "One!",
-  [2]: "Two!",
-  [3]: "Three!",
+case n
+  is 1 then "One!"
+  is 2 then "Two!"
+  is 3 then "Three!"
   # Default case:
-  [_]: "Something else!",
-}
+  is _ then "Something else!"
 ```
 
 Types are declared using the keyword `type` followed by a type expression. Putting `as` at the end of an expression will assert the resulting type. Types match based on duck typing, i.e. all of the properties names and types match.
