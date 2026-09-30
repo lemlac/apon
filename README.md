@@ -46,8 +46,8 @@ In-lined comments are marked with a hash symbol (`#`). It's recommended to keep 
   "projectName": "Admin Dashboard",
   "version": "1.0.0",
 
-  # Multi-line comments can written
-  # by using multiple comments in
+  # Multi-line comments can be written
+  # by writing out multiple comments in
   # a row.
   "database": {
     "host": "127.0.0.1",
@@ -77,12 +77,12 @@ let key = "message" in
 }
 ```
 
-Functions are declared using vertical bar notation. They can be declared in any expression if it expects a function type. Like true lambda functions, it can only have one expression which is its return value. 
+Functions are declared using vertical bar notation. They can be declared in value expression if the value's type is a function. Like true lambda functions, it can only have one argument and one expression which is its return value. 
 
 ```apon
 let addOne = |x| x + 1 in
 {
-  "answer": addOne(1)
+  "answer": addOne 1
 }
 ```
 
@@ -90,30 +90,34 @@ Basic operators found in most other programmming languages are available: `+ - *
 
 APON also has keyword expressions for boolean logic and pattern matching.
 
-`if then else`
+`if else` — boolean logic
 
 ```apon
 let status = 404 in
-if status == 200 then
-  "Success"
-else if status == 404 then
-  "Not Found"
-else if status == 500 then
-  "Internal Server Error"
-else
-  "Unknown Status"
+"Success" if status == 200 else
+"Not Found" if status == 404 else
+"Internal Server Error" if status == 500 else
+"Unknown Status"
 ```
 
-`case is then`
+`of` — pattern matching
 
 ```apon
 let n = 2 in
-case n
-  is 1 then "One!"
-  is 2 then "Two!"
-  is 3 then "Three!"
+n of {
+  | 1: "One!",
+  | 2: "Two!",
+  | 3: "Three!",
   # Default case:
-  is _ then "Something else!"
+  | _: "Something else!",
+}
+```
+
+`for in` — mapping and iterating
+
+```apom
+# Multiples of 5
+[n * 5 for n in 1..=12]
 ```
 
 Types are declared using the keyword `type` followed by a type expression. Putting `as` at the end of an expression will assert the resulting type. Types match based on duck typing, i.e. all of the properties names and types match.
@@ -136,7 +140,7 @@ Types are normally inferred, but they can be explicitly declared for `let` varia
 ```apon
 let a: number = 1 in
 let addOne = |x: number| x + 1 in
-{ "answer": addOne(a) }
+{ "answer": addOne a }
 ```
 
 This is a rough outline of the language so far. Feedback is welcomed: either through the [issues](https://github.com/lemlac/apon/issues) page or contact me directly via [email](mailto:13686726+lemlac@users.noreply.github.com).
