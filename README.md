@@ -105,11 +105,11 @@ let status = 404 in
 ```apon
 let n = 2 in
 n of {
-  | 1: "One!",
-  | 2: "Two!",
-  | 3: "Three!",
+  1: "One!",
+  2: "Two!",
+  3: "Three!",
   # Default case:
-  | _: "Something else!",
+  _: "Something else!",
 }
 ```
 
